@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		892A0C332D0D5C85003C6927 /* listenKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A0C322D0D5C85003C6927 /* listenKeyBoard.swift */; };
 		89F33CBE2D0C2AA70089D543 /* clipboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CBD2D0C2AA70089D543 /* clipboardApp.swift */; };
 		89F33CC02D0C2AA70089D543 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CBF2D0C2AA70089D543 /* ContentView.swift */; };
 		89F33CC22D0C2AA90089D543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F33CC12D0C2AA90089D543 /* Assets.xcassets */; };
 		89F33CC52D0C2AA90089D543 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F33CC42D0C2AA90089D543 /* Preview Assets.xcassets */; };
-		89F33CD02D0C2AA90089D543 /* clipboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CCF2D0C2AA90089D543 /* clipboardTests.swift */; };
-		89F33CDA2D0C2AA90089D543 /* clipboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CD92D0C2AA90089D543 /* clipboardUITests.swift */; };
-		89F33CDC2D0C2AA90089D543 /* clipboardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CDB2D0C2AA90089D543 /* clipboardUITestsLaunchTests.swift */; };
 		89F33CED2D0CB8160089D543 /* startupLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F33CEC2D0CB8160089D543 /* startupLaunch.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		892A0C322D0D5C85003C6927 /* listenKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listenKeyBoard.swift; sourceTree = "<group>"; };
 		89F33CBA2D0C2AA70089D543 /* clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F33CBD2D0C2AA70089D543 /* clipboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardApp.swift; sourceTree = "<group>"; };
 		89F33CBF2D0C2AA70089D543 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,10 +39,7 @@
 		89F33CC42D0C2AA90089D543 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89F33CC62D0C2AA90089D543 /* clipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clipboard.entitlements; sourceTree = "<group>"; };
 		89F33CCB2D0C2AA90089D543 /* clipboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clipboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89F33CCF2D0C2AA90089D543 /* clipboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardTests.swift; sourceTree = "<group>"; };
 		89F33CD52D0C2AA90089D543 /* clipboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clipboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89F33CD92D0C2AA90089D543 /* clipboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardUITests.swift; sourceTree = "<group>"; };
-		89F33CDB2D0C2AA90089D543 /* clipboardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89F33CEC2D0CB8160089D543 /* startupLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startupLaunch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,8 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				89F33CBC2D0C2AA70089D543 /* clipboard */,
-				89F33CCE2D0C2AA90089D543 /* clipboardTests */,
-				89F33CD82D0C2AA90089D543 /* clipboardUITests */,
 				89F33CBB2D0C2AA70089D543 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,28 +107,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		89F33CCE2D0C2AA90089D543 /* clipboardTests */ = {
-			isa = PBXGroup;
-			children = (
-				89F33CCF2D0C2AA90089D543 /* clipboardTests.swift */,
-			);
-			path = clipboardTests;
-			sourceTree = "<group>";
-		};
-		89F33CD82D0C2AA90089D543 /* clipboardUITests */ = {
-			isa = PBXGroup;
-			children = (
-				89F33CD92D0C2AA90089D543 /* clipboardUITests.swift */,
-				89F33CDB2D0C2AA90089D543 /* clipboardUITestsLaunchTests.swift */,
-			);
-			path = clipboardUITests;
-			sourceTree = "<group>";
-		};
 		89F33CEA2D0CB7950089D543 /* core */ = {
 			isa = PBXGroup;
 			children = (
 				89F33CEC2D0CB8160089D543 /* startupLaunch.swift */,
-				892A0C322D0D5C85003C6927 /* listenKeyBoard.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -284,7 +256,6 @@
 				89F33CED2D0CB8160089D543 /* startupLaunch.swift in Sources */,
 				89F33CC02D0C2AA70089D543 /* ContentView.swift in Sources */,
 				89F33CBE2D0C2AA70089D543 /* clipboardApp.swift in Sources */,
-				892A0C332D0D5C85003C6927 /* listenKeyBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F33CD02D0C2AA90089D543 /* clipboardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F33CDA2D0C2AA90089D543 /* clipboardUITests.swift in Sources */,
-				89F33CDC2D0C2AA90089D543 /* clipboardUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

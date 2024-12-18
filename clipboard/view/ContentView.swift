@@ -25,7 +25,7 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
             .tint(.gray)
             .padding()
-        }
+        }.frame(width: 300,height: 400)
     }
 }
 
