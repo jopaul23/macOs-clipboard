@@ -10,12 +10,16 @@ import AppKit
 
 
 class ClipboardManager: ObservableObject {
-    @Published var clipboardHistory: [String] = []
+    @Published var clipboardHistory: BoundedList<String> = BoundedList<String>(AppConfig.clipboardMaxLength);
     @Published var lastCopiedString: String?
     
     init() {
         startMonitoringClipboard()
         addAppToLoginItems()
+    }
+    
+    public func getElementAtIndex(_ index: Int) -> String? {
+        return clipboardHistory.getElementAtIndex(index)
     }
 
     private func startMonitoringClipboard() {
@@ -23,7 +27,7 @@ class ClipboardManager: ObservableObject {
             if let copiedString = NSPasteboard.general.string(forType: .string),
                 copiedString != self.lastCopiedString {
                 self.lastCopiedString = copiedString
-                self.clipboardHistory.insert(copiedString, at: 0)
+                self.clipboardHistory.insert(copiedString)
             }
         }
     }

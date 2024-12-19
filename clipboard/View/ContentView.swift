@@ -22,26 +22,28 @@ struct ContentView: View {
     }
 
     var body: some View {
-        List(clipboardManager.clipboardHistory, id: \.self) { item in
-            Button(action:{
-                copyItemToClipboard(item: item)
-            }){
-                HStack {
-                    Image(systemName: "clipboard.fill")
-                        .foregroundColor(.yellow)
-                    Text(item)
-                        .font(.body)
-                        .foregroundColor(.white)
-                        .lineLimit(5)
-                        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
-                    Spacer()
+        List(clipboardManager.clipboardHistory.getList().indices, id: \.self) { index in
+            if let item = clipboardManager.getElementAtIndex(index) {
+                Button(action:{
+                    copyItemToClipboard(item: item)
+                }){
+                    HStack {
+                        Image(systemName: "clipboard.fill")
+                            .foregroundColor(.yellow)
+                        Text(item)
+                            .font(.body)
+                            .foregroundColor(.white)
+                            .lineLimit(5)
+                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                        Spacer()
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                    .listRowSeparator(.hidden)
                 }
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                .buttonStyle(PlainButtonStyle())
                 .listRowSeparator(.hidden)
+                Divider().lineLimit(1)
             }
-            .buttonStyle(PlainButtonStyle())
-            .listRowSeparator(.hidden)
-            Divider().lineLimit(1)
         }
         .scrollContentBackground(.hidden)
         .frame(width: 300, height: 400)
