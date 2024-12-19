@@ -39,10 +39,11 @@ struct ContentView: View {
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 .listRowSeparator(.hidden)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(PlainButtonStyle())
             .listRowSeparator(.hidden)
             Divider().lineLimit(1)
         }
+        .scrollContentBackground(.hidden)
         .frame(width: 300, height: 400)
     }
 }

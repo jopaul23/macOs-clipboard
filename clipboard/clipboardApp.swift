@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+
+struct BlurredBackground: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSVisualEffectView {
+        let view = NSVisualEffectView()
+        view.material = .hudWindow
+        view.state = .active
+        view.blendingMode = .behindWindow
+        return view
+    }
+
+    func updateNSView(_ nsView: NSVisualEffectView, context: Context) {
+        // No updates needed
+    }
+}
+
 @main
 struct clipboardApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
@@ -52,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popOver = NSPopover()
         self.popOver.contentSize = NSSize(width: 300, height: 400)
         self.popOver.behavior = .transient
-        self.popOver.contentViewController = NSHostingController(rootView: ContentView().environmentObject(clipboardManager))
+        self.popOver.contentViewController = NSHostingController(rootView: ContentView().environmentObject(clipboardManager).background(BlurredBackground()))
     }
     
     @objc func togglePopover(){
