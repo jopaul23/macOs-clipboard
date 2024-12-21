@@ -55,6 +55,7 @@ struct ContentView: View {
                     .buttonStyle(.plain)
                     Spacer()
                 }
+                .listRowSeparator(.hidden)
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 0))
                 Divider().lineLimit(1)
             }
