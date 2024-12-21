@@ -24,28 +24,45 @@ struct ContentView: View {
     var body: some View {
         List(clipboardManager.clipboardHistory.getList().indices, id: \.self) { index in
             if let item = clipboardManager.getElementAtIndex(index) {
-                Button(action:{
-                    copyItemToClipboard(item: item)
-                }){
-                    HStack {
-                        Image(systemName: "clipboard.fill")
-                            .foregroundColor(.yellow)
-                        Text(item)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .lineLimit(5)
-                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
-                        Spacer()
+                VStack{
+                    Button(action:{
+                        copyItemToClipboard(item: item)
+                    }){
+                        HStack {
+                            
+                            Text(item)
+                                .font(.body)
+                                .foregroundColor(.white)
+                                .lineLimit(5)
+                                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                            Spacer()
+                        }
+                        .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                        .listRowSeparator(.hidden)
                     }
-                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                    .buttonStyle(PlainButtonStyle())
                     .listRowSeparator(.hidden)
                 }
-                .buttonStyle(PlainButtonStyle())
                 .listRowSeparator(.hidden)
+                HStack{
+                    Button(action: { copyItemToClipboard(item: item) }) {
+                        Image(systemName: "clipboard.fill").foregroundColor(.yellow)
+                    }
+                    .buttonStyle(.plain)
+                    Button(action: { deleteItem(index: index) }) {
+                        Image(systemName: "trash.fill")
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 0))
                 Divider().lineLimit(1)
             }
         }
         .scrollContentBackground(.hidden)
         .frame(width: 300, height: 400)
+    }
+    func deleteItem(index: Int){
+        clipboardManager.removeElementAtIndex(index)
     }
 }

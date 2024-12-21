@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popOver = NSPopover()
         self.popOver.contentSize = NSSize(width: 300, height: 400)
         self.popOver.behavior = .transient
-        self.popOver.contentViewController = NSHostingController(rootView: ContentView().environmentObject(clipboardManager).background(BlurredBackground()))
+        self.popOver.contentViewController = NSHostingController(rootView: ContentView().environmentObject(clipboardManager))
     }
     
     @objc func togglePopover(){

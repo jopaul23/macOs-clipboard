@@ -18,6 +18,14 @@ class ClipboardManager: ObservableObject {
         addAppToLoginItems()
     }
     
+    public func removeElementAtOffset(_ offset: IndexSet) {
+        clipboardHistory.removeItemAtOffset(offset)
+    }
+    
+    public func removeElementAtIndex(_ index: Int) {
+        clipboardHistory.removeItemAtIndex(index)
+    }
+    
     public func getElementAtIndex(_ index: Int) -> String? {
         return clipboardHistory.getElementAtIndex(index)
     }

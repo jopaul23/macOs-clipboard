@@ -11,8 +11,6 @@ import SwiftUI
 struct clipboardApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     var body: some Scene {
-        Settings {
-              Text("Settings or main app window")
-        }
+        Settings {}
     }
 }

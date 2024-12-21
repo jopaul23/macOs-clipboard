@@ -31,6 +31,14 @@ struct BoundedList<T> {
         return data[safe: index]
     }
     
+    mutating func removeItemAtOffset(_ indexSet: IndexSet) {
+        self.data.remove(atOffsets: indexSet)
+    }
+    
+    mutating func removeItemAtIndex(_ index: Int) {
+        self.data.remove(at: index)
+    }
+    
     func getList() -> [T] {
         return data
     }
