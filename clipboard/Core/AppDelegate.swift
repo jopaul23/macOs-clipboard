@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         self.popOver = NSPopover()
-        self.popOver.contentSize = NSSize(width: 300, height: 400)
+        self.popOver.contentSize = AppConfig.windowSize
         self.popOver.behavior = .transient
         self.popOver.contentViewController = NSHostingController(rootView: ContentView().environmentObject(clipboardManager))
     }

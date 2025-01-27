@@ -10,23 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var clipboardManager: ClipboardManager
 
-    func copyItemToClipboard(item: String) {
-        clipboardManager.lastCopiedString = item
-        let pasteboard = NSPasteboard.general
-        pasteboard.clearContents()
-        if pasteboard.setString(item, forType: .string) {
-            print("String copied to clipboard successfully.")
-        } else {
-            print("Failed to copy string to clipboard.")
-        }
-    }
-
     var body: some View {
-        List(clipboardManager.clipboardHistory.getList().indices, id: \.self) { index in
+        List(clipboardManager.getClipboardItems().indices, id: \.self) { index in
             if let item = clipboardManager.getElementAtIndex(index) {
                 VStack{
                     Button(action:{
-                        copyItemToClipboard(item: item)
+                        clipboardManager.copyItemToClipboard(item: item)
                     }){
                         HStack {
                             
@@ -45,12 +34,22 @@ struct ContentView: View {
                 }
                 .listRowSeparator(.hidden)
                 HStack{
-                    Button(action: { copyItemToClipboard(item: item) }) {
+                    Button(action: { clipboardManager.copyItemToClipboard(item: item) }) {
                         Image(systemName: "clipboard.fill").foregroundColor(.yellow)
                     }
                     .buttonStyle(.plain)
-                    Button(action: { deleteItem(index: index) }) {
+                    Button(action: { clipboardManager.removeElementAtIndex(index) }) {
                         Image(systemName: "trash.fill")
+                    }
+                    .buttonStyle(.plain)
+                    Button(action: {
+                        if ( index < clipboardManager.getPinnedIndex()){
+                            clipboardManager.unpinItem(index)
+                        } else {
+                            clipboardManager.pinItem(index)
+                        }
+                    }) {
+                        Image(systemName: index < clipboardManager.getPinnedIndex() ? "pin.fill" : "pin")
                     }
                     .buttonStyle(.plain)
                     Spacer()
@@ -62,8 +61,5 @@ struct ContentView: View {
         }
         .scrollContentBackground(.hidden)
         .frame(width: 300, height: 400)
-    }
-    func deleteItem(index: Int){
-        clipboardManager.removeElementAtIndex(index)
     }
 }
